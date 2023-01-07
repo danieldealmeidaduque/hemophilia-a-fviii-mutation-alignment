@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from os.path import abspath, join, dirname
 from os import remove
 from Bio import SeqIO

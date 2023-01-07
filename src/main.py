@@ -1,11 +1,5 @@
 # -*- coding: utf-8 -*-
 
-"""
-1. Mutate FVIII human amino acids sequence with a point mutation.
-2. Mutate several amino acid sequences separately and align them.
-3. Generate alignment file with all mutated sequences aligned.
-4. Generate sliced alignment file eliminating repeated amino acids in the same position for all sequences.
-"""
 from auxiliar import exception_handler, print_finished_time, read_pm_file, get_name_description_seq_file, colorize_svg
 
 from Bio.Data.IUPACData import protein_letters_3to1 as prot3to1
