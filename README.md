@@ -1,3 +1,7 @@
+# Hemophilia - Seaview - Python
+
+## Description
+
 1. Mutate FVIII human amino acids sequence with a point mutation.
 2. Mutate several amino acid sequences separately and align them.
 3. Generate alignment file with all mutated sequences aligned.
