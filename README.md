@@ -6,4 +6,4 @@
 2. Mutate the wild Human FVIII protein using point mutation 
 3. Repeat step 2 for each point mutation from step 1
 4. Align all mutated Human FVIII and generate a fasta file
-5. Use file created on step 5 to slice all mutated Human FVIII and gererate a fasta file
+5. Use file created on step 4 to slice all mutated Human FVIII and gererate a fasta file
