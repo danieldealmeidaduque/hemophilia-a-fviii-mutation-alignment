@@ -27,10 +27,9 @@
 
 
 
-<h3 align="center"> Utilizing Point Mutations in Factor VIII to Understand Hemophilia A </h3>
+<h3 align="center"> Utilizing Point Mutations in Factor VIII to Understand Hemophilia A: A Project Utilizing Sequence Alignment and Phylogenetic Trees </h3>
 
   <p align="center">
-    A Project Utilizing Sequence Alignment and Phylogenetic Trees
     <br />
     <a href="https://github.com/danieldealmeidaduque/hemophilia-a-mutations-phylogenetictree"><strong>Explore the docs »</strong></a>
     <br />
