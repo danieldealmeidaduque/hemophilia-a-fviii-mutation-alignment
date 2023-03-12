@@ -30,7 +30,7 @@
 <h3 align="center"> Hemophilia A - FVIII | Point Mutations | Alignment | Phylogenetic Tree | Seaview </h3>
 
   <p align="center">
-    Apply point mutations in wild FVIII and generate phylogenetic trees
+    Apply point mutations in wild FVIII and align the mutated sequences
     <br />
     <a href="https://github.com/danieldealmeidaduque/hemophilia-a-mutations-phylogenetictree"><strong>Explore the docs »</strong></a>
     <br />
