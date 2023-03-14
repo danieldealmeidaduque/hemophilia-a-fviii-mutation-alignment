@@ -10,95 +10,87 @@ from Bio.SeqRecord import SeqRecord
 from numpy import NaN
 
 
-def get_info(s):
-    wild = re.search("^\D+", s).group()
-    pos = re.search("\d+", s).group()
-    new = re.search("\D+$", s).group()
-    return wild, int(pos), new
-
-
-class Mutate:
-    """Class representing the point mutations of the csv file as a dataframe"""
-
-    def __init__(self, input_wild, input_champ, folder):
+class PointMutateFVIII:
+    def __init__(self, input_wild, input_champ, input_folder, output_folder):
         """Create a Mutate object"""
 
         # define the file paths
-        dir = abspath(join(dirname(__file__), "..", folder))
-        self.path_champ = join(dir, input_champ)
-        self.path_wild = join(dir, input_wild)
+        self.input_dir = abspath(join(dirname(__file__), "..", input_folder))
+        self.output_dir = abspath(join(dirname(__file__), "..", output_folder))
+        self.path_champ = join(self.input_dir, input_champ)
+        self.path_wild = join(self.input_dir, input_wild)
+        self.input_wild = input_wild
 
-        # create dataframe using the champ mutation list in excel
+        # create a dataframe using the champ mutation list
         df = pd.read_excel(self.path_champ)
 
-        # create a dict with severity as key and list of mutations as values
+        # create a dictionary with severity as keys and list of mutations as values
         self.d = {}
         for sev, prot in df.groupby("Reported Severity"):
             self.d[sev] = prot["HGVS Protein"].to_list()
 
-        # mutate all sequences in the dataframe
-        self.mutate_sequences()
-
-        # self.df.to_excel("teste.xlsx")
-
     def mutate_sequences(self):
         """Apply all mutations from the champ mutation list"""
 
+        def get_mutation(s):
+            wild = re.search("^\D+", s).group()
+            pos = re.search("\d+", s).group()
+            new = re.search("\D+$", s).group()
+            return wild, int(pos), new
+
         def mutate_seq(prot):
-            """Mutate a single sequence"""
+            """Mutate a single sequence of amino acids"""
 
             # get the wild amino acid sequence and make it mutable
             wild_seq = MutableSeq(SeqIO.read(self.path_wild, "fasta").seq)
 
-            # alias to faciliate manipulation
-            wild, pos, new = get_info(prot)
+            # alias to faciliate mutation manipulation
+            wild_aa, pos, new_aa = get_mutation(prot)
 
-            # verify if wild is a valid amino acid
-            if not (wild in prot3to1.keys()):
+            # verify if wild_aa is a valid amino acid
+            if not (wild_aa in prot3to1.keys()):
                 return NaN
 
-            # verify if wild is the same amino acid in the wild sequence to mutate it
-            if not (prot3to1[wild] == wild_seq[pos - 1]):
+            # verify if wild_aa is the same amino acid in the wild sequence to be able to mutate
+            if not (prot3to1[wild_aa] == wild_seq[pos - 1]):
                 return NaN
 
-            # * is stop codon
-            if new == "*":
+            # if is stop codon (*) remove all amino acids after it
+            if new_aa == "*":
                 wild_seq[pos - 1 :] = ""
             else:
-                wild_seq[pos - 1] = prot3to1[new]
+                wild_seq[pos - 1] = prot3to1[new_aa]
 
-            return str(wild_seq)
+            # return as string to be able to
+            return MutableSeq(wild_seq)
 
-        seq_record = SeqIO.read(self.path_wild, "fasta")
-        name = seq_record.name
-        description = seq_record.description
+        # get informations from the wild FVIII fasta file
+        wild_seq_record = SeqIO.read(self.path_wild, "fasta")
+        name = wild_seq_record.name
+        description = wild_seq_record.description
 
+        # apply each mutation in a wild FVIII and generate a list of seq records
         seq_records = []
         for sev, prots in self.d.items():
             for prot in prots:
                 id = sev + "{" + prot + "}"
-
                 seq = mutate_seq(prot)
+
                 if seq is NaN:
                     continue
                 else:
-                    seq_record = SeqRecord(MutableSeq(seq), id, name, description)
+                    seq_record = SeqRecord(seq, id, name, description)
                     seq_records.append(seq_record)
 
-        # pad all mutated sequences
+        # pad all mutated sequences to be able to write it into the fasta file
         max_len = max(len(str(r.seq)) for r in seq_records)
-        print(max_len)
-
         for r in seq_records:
             s = str(r.seq).ljust(max_len, "x")
             r.seq = Seq(s)
 
-        # generate fasta file with mutated sequence records
-        AlignIO.write(MSA(seq_records), f"align_path{len(seq_records)}.fasta", "fasta")
+        # define output path
+        output_file = f"{self.input_wild[:-6]}_{len(seq_records)}_sequences_align.fasta"
+        output_path = join(self.output_dir, output_file)
 
-
-mutate = Mutate(
-    input_wild="Human_FVIII_prot.fasta",
-    input_champ="champ-mutation-list-q4-clean.xlsx",
-    folder="datasets",
-)
+        # generate a fasta file with all mutated sequence records
+        AlignIO.write(MSA(seq_records), output_path, "fasta")
