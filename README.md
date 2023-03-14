@@ -34,13 +34,13 @@
 
   <p align="center">
     <br />
-    <a href="https://github.com/danieldealmeidaduque/hemophilia-a-mutations-phylogenetictree"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/danieldealmeidaduque/hemophilia-a-mutations-phylogeneticTree"><strong>Explore the docs »</strong></a>
     <br />
     09/21 - 02/22
     <br />
-    <a href="https://github.com/danieldealmeidaduque/hemophilia-a-mutations-phylogenetictree">Report Bug</a>
+    <a href="https://github.com/danieldealmeidaduque/hemophilia-a-mutations-phylogeneticTree">Report Bug</a>
     ·
-    <a href="https://github.com/danieldealmeidaduque/hemophilia-a-mutations-phylogenetictree">Request Feature</a>
+    <a href="https://github.com/danieldealmeidaduque/hemophilia-a-mutations-phylogeneticTree">Request Feature</a>
   </p>
 </div>
 
