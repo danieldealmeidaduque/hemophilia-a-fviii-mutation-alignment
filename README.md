@@ -77,11 +77,11 @@
 ## About The Project
 
 <p align="justify">
-    Hemophilia A is characterized by mutations in a protein known as factor VIII and is classified into three severities: mild, moderate, and severe. A project has been developed that utilizes the wild FVIII sequence of amino acids and a point mutation database that contains information about location, domain, mutation type, and severity of the disease.
+    Hemophilia A is characterized by mutations in a protein known as factor VIII and is classified into three severities: mild, moderate, and severe.
 </p>
 
 <p align="justify">
-    The project applies the point mutation in the wild FVIII and generates a mutated FVIII. Each mutation in the database is applied to generate a sequence, which is then aligned and saved in a fasta file.
+    This project has been developed using the wild FVIII sequence of amino acids and the champ mutation list from CDC that contains information about location, domain, mutation type, and severity of the disease. Each point mutation of the database was applied in the wild FVIII and a mutated sequence for each point mutation was created. This list of mutated sequences was saved into a fasta file.
 </p>
 
 <!-- GETTING STARTED -->
