@@ -38,9 +38,9 @@
     <br />
     09/21 - 02/22
     <br />
-    <a href="https://github.com/danieldealmeidaduque/hemophilia-a-champMutation-mutateFVIII">Report Bug</a>
+    <a href="https://github.com/danieldealmeidaduque/hemophilia-a-champMutation-mutateFVIII/issues">Report Bug</a>
     ·
-    <a href="https://github.com/danieldealmeidaduque/hemophilia-a-champMutation-mutateFVIII">Request Feature</a>
+    <a href="https://github.com/danieldealmeidaduque/hemophilia-a-champMutation-mutateFVIII/issues">Request Feature</a>
   </p>
 </div>
 
