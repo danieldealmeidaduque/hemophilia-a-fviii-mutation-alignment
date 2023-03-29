@@ -34,13 +34,11 @@
 
   <p align="center">
     <br />
-    <a href="https://github.com/danieldealmeidaduque/hemophilia-a-champMutation-mutateFVIII"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/danieldealmeidaduque/hemophilia-a-fviii-mutation-alignment"><strong>Explore the docs »</strong></a>
     <br />
     09/21 - 02/22
     <br />
-    <a href="https://github.com/danieldealmeidaduque/hemophilia-a-champMutation-mutateFVIII/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/danieldealmeidaduque/hemophilia-a-champMutation-mutateFVIII/issues">Request Feature</a>
+    <a href="https://github.com/danieldealmeidaduque/hemophilia-a-fviii-mutation-alignment/issues">Report Bug</a>
   </p>
 </div>
 
