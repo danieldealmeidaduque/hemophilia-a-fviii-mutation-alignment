@@ -36,7 +36,9 @@
     <br />
     <a href="https://github.com/danieldealmeidaduque/hemophilia-a-fviii-mutation-alignment"><strong>Explore the docs »</strong></a>
     <br />
-    09/21 - 02/22
+    v1 09/21 - 02/22
+    <br /> 
+    v2 03/23 - 03/23
     <br />
     <a href="https://github.com/danieldealmeidaduque/hemophilia-a-fviii-mutation-alignment/issues">Report Bug</a>
   </p>
